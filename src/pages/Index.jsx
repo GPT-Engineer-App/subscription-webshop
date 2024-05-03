@@ -56,22 +56,22 @@ const Index = () => {
               </Heading>
               <HStack mt={4} spacing={2}>
                 {room.whiteboard && (
-                  <Tooltip label="Whiteboard available" hasArrow>
+                  <Tooltip label="Whiteboard available" hasArrow placement="auto-start">
                     <FaChalkboard size="20px" />
                   </Tooltip>
                 )}
                 {room.projector && (
-                  <Tooltip label="Projector available" hasArrow>
+                  <Tooltip label="Projector available" hasArrow placement="auto-start">
                     <FaVideo size="20px" />
                   </Tooltip>
                 )}
                 {room.videoConferencing && (
-                  <Tooltip label="Video conferencing available" hasArrow>
+                  <Tooltip label="Video conferencing available" hasArrow placement="auto-start">
                     <FaCamera size="20px" />
                   </Tooltip>
                 )}
                 {room.catering && (
-                  <Tooltip label="Catering available" hasArrow>
+                  <Tooltip label="Catering available" hasArrow placement="auto-start">
                     <FaUtensils size="20px" />
                   </Tooltip>
                 )}
