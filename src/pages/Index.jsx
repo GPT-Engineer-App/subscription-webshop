@@ -1,41 +1,17 @@
 import { Box, Button, Container, Heading, SimpleGrid, Text, VStack, Image, HStack, Tooltip } from "@chakra-ui/react";
 import { FaShoppingCart, FaChalkboard, FaVideo, FaCamera, FaUtensils } from "react-icons/fa";
 
-const rooms = [
-  {
-    id: 1,
-    name: "Room A",
-    whiteboard: true,
-    projector: true,
-    videoConferencing: false,
-    catering: false,
-    price: "200 NOK/hour",
-    size: "15m²",
-    image: "url-to-room-a.jpg",
-  },
-  {
-    id: 2,
-    name: "Room B",
-    whiteboard: true,
-    projector: true,
-    videoConferencing: true,
-    catering: false,
-    price: "300 NOK/hour",
-    size: "25m²",
-    image: "url-to-room-b.jpg",
-  },
-  {
-    id: 3,
-    name: "Room C",
-    whiteboard: true,
-    projector: true,
-    videoConferencing: true,
-    catering: true,
-    price: "450 NOK/hour",
-    size: "40m²",
-    image: "url-to-room-c.jpg",
-  },
-];
+const rooms = Array.from({ length: 20 }, (_, i) => ({
+  id: i + 1,
+  name: `Room ${String.fromCharCode(65 + i)} - ${["Odin", "Thor", "Loki", "Freyja", "Heimdall", "Balder", "Frigg", "Tyr", "Njord", "Skadi", "Idunn", "Bragi", "Forseti", "Gefjon", "Hodr", "Sif", "Sigyn", "Ullr", "Vidar", "Vali"][i % 20]}`,
+  whiteboard: true,
+  projector: true,
+  videoConferencing: i % 2 === 0,
+  catering: i % 4 === 0,
+  price: `${200 + i * 10} NOK/hour`,
+  size: `${15 + i * 2}m²`,
+  image: `url-to-room-${String.fromCharCode(65 + i).toLowerCase()}.jpg`,
+}));
 
 const Index = () => {
   return (
@@ -50,7 +26,7 @@ const Index = () => {
         </Button>
         <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
           {rooms.map((room) => (
-            <Box key={room.id} p={5} shadow="md" borderWidth="1px" borderRadius="lg">
+            <Box key={room.id} p={5} shadow="md" borderWidth="1px" borderRadius="lg" backgroundColor="black" color="white">
               <Heading as="h3" size="lg">
                 {room.name}
               </Heading>
