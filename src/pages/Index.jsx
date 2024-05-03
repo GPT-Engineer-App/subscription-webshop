@@ -32,10 +32,13 @@ const Index = () => {
   return (
     <Container maxW="container.xl" py={10}>
       <VStack spacing={8}>
-        <Heading as="h1" size="xl">
+        <Heading as="h1" size="xl" mb={4}>
           Meeting Room Booking
         </Heading>
         <Text>Select a room and book it for your desired time slot.</Text>
+        <Button colorScheme="blue" onClick={() => navigate("/login")}>
+          Login
+        </Button>
         <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
           {rooms.map((room) => (
             <Box key={room.id} p={5} shadow="md" borderWidth="1px" borderRadius="lg">
