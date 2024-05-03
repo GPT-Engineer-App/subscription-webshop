@@ -1,4 +1,4 @@
-import { Box, Button, Container, Heading, SimpleGrid, Text, VStack, Image, HStack } from "@chakra-ui/react";
+import { Box, Button, Container, Heading, SimpleGrid, Text, VStack, Image, HStack, Tooltip } from "@chakra-ui/react";
 import { FaShoppingCart, FaChalkboard, FaVideo, FaCamera, FaUtensils } from "react-icons/fa";
 
 const rooms = [
@@ -55,10 +55,26 @@ const Index = () => {
                 {room.name}
               </Heading>
               <HStack mt={4} spacing={2}>
-                {room.whiteboard && <FaChalkboard size="20px" />}
-                {room.projector && <FaVideo size="20px" />}
-                {room.videoConferencing && <FaCamera size="20px" />}
-                {room.catering && <FaUtensils size="20px" />}
+                {room.whiteboard && (
+                  <Tooltip label="Whiteboard available" hasArrow>
+                    <FaChalkboard size="20px" />
+                  </Tooltip>
+                )}
+                {room.projector && (
+                  <Tooltip label="Projector available" hasArrow>
+                    <FaVideo size="20px" />
+                  </Tooltip>
+                )}
+                {room.videoConferencing && (
+                  <Tooltip label="Video conferencing available" hasArrow>
+                    <FaCamera size="20px" />
+                  </Tooltip>
+                )}
+                {room.catering && (
+                  <Tooltip label="Catering available" hasArrow>
+                    <FaUtensils size="20px" />
+                  </Tooltip>
+                )}
               </HStack>
               <Image src={room.image} alt={`Image of ${room.name}`} mt={4} borderRadius="md" />
               <Text mt={1} fontWeight="bold">
