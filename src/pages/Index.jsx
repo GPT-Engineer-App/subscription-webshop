@@ -1,11 +1,14 @@
-import { Box, Button, Container, Heading, SimpleGrid, Text, VStack, Image } from "@chakra-ui/react";
-import { FaShoppingCart } from "react-icons/fa";
+import { Box, Button, Container, Heading, SimpleGrid, Text, VStack, Image, HStack } from "@chakra-ui/react";
+import { FaShoppingCart, FaChalkboard, FaVideo, FaCamera, FaUtensils } from "react-icons/fa";
 
 const rooms = [
   {
     id: 1,
     name: "Room A",
-    description: "Small room, suitable for up to 4 people. Includes whiteboard and projector.",
+    whiteboard: true,
+    projector: true,
+    videoConferencing: false,
+    catering: false,
     price: "200 NOK/hour",
     size: "15m²",
     image: "url-to-room-a.jpg",
@@ -13,7 +16,10 @@ const rooms = [
   {
     id: 2,
     name: "Room B",
-    description: "Medium room, suitable for up to 8 people. Includes whiteboard, projector, and video conferencing facilities.",
+    whiteboard: true,
+    projector: true,
+    videoConferencing: true,
+    catering: false,
     price: "300 NOK/hour",
     size: "25m²",
     image: "url-to-room-b.jpg",
@@ -21,7 +27,10 @@ const rooms = [
   {
     id: 3,
     name: "Room C",
-    description: "Large room, suitable for up to 15 people. Includes whiteboard, projector, video conferencing, and catering services.",
+    whiteboard: true,
+    projector: true,
+    videoConferencing: true,
+    catering: true,
     price: "450 NOK/hour",
     size: "40m²",
     image: "url-to-room-c.jpg",
@@ -45,7 +54,12 @@ const Index = () => {
               <Heading as="h3" size="lg">
                 {room.name}
               </Heading>
-              <Text mt={4}>{room.description}</Text>
+              <HStack mt={4} spacing={2}>
+                {room.whiteboard && <FaChalkboard size="20px" />}
+                {room.projector && <FaVideo size="20px" />}
+                {room.videoConferencing && <FaCamera size="20px" />}
+                {room.catering && <FaUtensils size="20px" />}
+              </HStack>
               <Image src={room.image} alt={`Image of ${room.name}`} mt={4} borderRadius="md" />
               <Text mt={1} fontWeight="bold">
                 {room.price}
