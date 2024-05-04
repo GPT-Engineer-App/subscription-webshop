@@ -52,7 +52,7 @@ const Index = () => {
                   </Tooltip>
                 )}
               </HStack>
-              <Image src={room.image} alt={`Image of ${room.name}`} mt={4} borderRadius="md" />
+              <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb0iW92eT9dpVerSP3KzoHHHfYL9aeoqmcwIr_r3oduA&s" alt={`Image of ${room.name}`} mt={4} borderRadius="md" />
               <Text mt={1} fontWeight="bold">
                 {room.price}
               </Text>
